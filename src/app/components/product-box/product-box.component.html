@@ -1,0 +1,19 @@
+<mat-card *ngIf="product" [ngClass]="{'textAlign':!fullWidthMode}">
+    <div [ngClass]="{'container-nfwm':!fullWidthMode, 'container-fwm':fullWidthMode}">
+        <img [ngClass]="{'product-img-nfwm':!fullWidthMode, 'product-img-fwm':fullWidthMode}" [src]=product.image alt="product">
+        <div class="product-info" [ngClass]="{'product-info-fwm':fullWidthMode}">
+            <div class="product-name">
+                <h5>{{product.category}}</h5>
+                <p [ngClass]="{'product-name-nfwm':!fullWidthMode}" title="{{product.title}}">
+                    {{product.title}}</p>
+                <p *ngIf="fullWidthMode">{{product.description}}</p>
+            </div>
+            <div class="product-price">
+                <span>{{product.price| currency:'EUR'}}</span>
+                <button mat-icon-button (click)="addToCart()">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,31 @@
+<mat-toolbar class="header">
+    <a class="logo" routerLink="home">
+        <img src="../../../assets/img/START2SHOP Logo.png" alt="logo">
+    </a>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="cart-icon">
+        <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn">
+            shopping_cart
+        </mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div class="cart-menu">
+            <div class="cart-info">
+                <span>{{itemsQuantity}} {{itemsQuantity === 1 ? 'item' : 'items'}} </span>
+                <a routerLink="cart">View cart</a>
+            </div>
+            <div class="cart-item-container" *ngIf ="cart.items.length > 0; else cartEmpty">
+                <div class="cart-item" *ngFor="let item of cart.items">
+                    {{item.name}} X {{item.quantity}}
+                    <span>{{item.price| currency:'EUR'}}</span>
+                </div>
+            </div>
+            <div class="cart-total">
+                Total:
+                <span>{{getTotal(cart.items)| currency:'EUR'}}</span>
+            </div>
+        </div>
+        <ng-template #cartEmpty>
+            <p class="empty-cart">Your cart is empty</p>
+        </ng-template>
+    </mat-menu>
+</mat-toolbar>

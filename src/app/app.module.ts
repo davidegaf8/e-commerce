@@ -1,38 +1,64 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ShippingComponent } from './shipping/shipping.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductsHeaderComponent } from './components/products-header/products-header.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { ProductBoxComponent } from './components/product-box/product-box.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartService } from './services/cart.service';
+import { StoreService } from './services/store.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopBarComponent,
-    ProductListComponent,
-    ProductAlertsComponent,
-    ProductDetailsComponent,
+    HeaderComponent,
+    HomeComponent,
+    ProductsHeaderComponent,
+    FiltersComponent,
+    ProductBoxComponent,
     CartComponent,
-    ShippingComponent
-  ],
+    
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatListModule,
+    MatGridListModule,
+    MatTableModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [CartService, StoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
