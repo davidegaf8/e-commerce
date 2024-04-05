@@ -1,0 +1,10 @@
+[[build]]
+    base = "e-commerce"
+    command = "npm run build:prod"
+    publish = "dist/e-commerce"
+
+
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
