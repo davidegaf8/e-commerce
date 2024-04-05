@@ -58,7 +58,7 @@ import { StoreService } from './services/store.service';
     MatTableModule,
     MatSnackBarModule
   ],
-  providers: [CartService, StoreService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
